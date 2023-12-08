@@ -1,9 +1,8 @@
 import telebot
 from telebot import types
+import config
 
-bot_api = '6504086261:AAG1uYamglX9LFsane-qYY4xDsGMjTtO6OM'
-
-bot = telebot.TeleBot(bot_api)
+bot = telebot.TeleBot(config.TOKEN)
 
 user_responses = {}
 
