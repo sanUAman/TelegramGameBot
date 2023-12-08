@@ -59,6 +59,25 @@ def first_question(message):
 
         bot.register_next_step_handler(message, second_question)
 
+    elif message.text == 'Developers` choice':
+
+        Advise = ['The Witcher 3: Wild Hunt', 'Geomtry Dash', 'Grand Theft Auto V', 'Terraria', 'Vampire Survivors', 'Sid Meier`s Civilization VI',
+                  'Fortnite', 'Cuphead', 'Half-Life 2', 'I hate this game', 'Metro Exodus', 'Machinarium', 'Samorost 3']
+
+        for game in Advise:
+            bot.send_message(message.chat.id, game)
+
+        markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
+
+        back = types.KeyboardButton('<<< Back')
+
+        markup.row(back)
+
+        bot.send_message(message.chat.id,
+                         'Now you can try again)', reply_markup=markup)
+
+        bot.register_next_step_handler(message, Response)
+
 def second_question(message):
     user_responses[message.chat.id] = {'genre': message.text}
 
